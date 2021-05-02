@@ -2,11 +2,11 @@ package domain;
 
 public class Car {
 
-    private String carName;
+    private CarName carName;
     private CarDistance carDistance;
 
     public Car(String carName){
-        this.carName = carName;
+        this.carName = new CarName(carName);
         carDistance = new CarDistance();
     }
 
