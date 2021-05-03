@@ -23,10 +23,15 @@ public class GameController {
     }
 
     public void playGame(){
+
         for(int round = 0; round < playNumber.getRaceCount(); round++){
             playerMove();
             PlayView.racingView(participant);
         }
+
+        participant.winnerCarPlayer();
+        PlayView.resultView(participant);
+
     }
 
     public void playerMove(){

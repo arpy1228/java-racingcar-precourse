@@ -40,8 +40,14 @@ public class Participant {
         inputParticipants(StringUtil.participateGame(sc.nextLine()));
     }
 
-    public void sortingCarPlayer(){
-        participants.sort(Comparator.comparing(Car::getCarMoveDistance));
+    public void winnerCarPlayer(){
+
+        participants.sort(Comparator.comparing(Car::getCarMoveDistance).reversed());
+
+        int winnerDistance = participants.get(0).getCarMoveDistance();
+        participants.removeIf(participant -> participant.getCarMoveDistance() != winnerDistance);
+
+
     }
 
 

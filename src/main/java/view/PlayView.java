@@ -21,4 +21,15 @@ public class PlayView {
         sb.append("\r\n");
     }
 
+    public static void resultView(Participant participant){
+        StringBuffer sb = new StringBuffer();
+        for(int winnerCount = 0; winnerCount < participant.getParticipantsCount(); winnerCount++){
+            sb.append(participant.getParticipants().get(winnerCount).getCarName()).append(",");
+        }
+        sb.deleteCharAt(sb.lastIndexOf(","));
+        sb.append("가 최종 우승했습니다.");
+        System.out.println(sb.toString());
+
+    }
+
 }
