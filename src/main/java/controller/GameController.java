@@ -3,6 +3,7 @@ package controller;
 
 import domain.Participant;
 import domain.PlayNumber;
+import domain.Winner;
 import util.RandomNumberUtil;
 import view.PlayView;
 
@@ -10,10 +11,12 @@ public class GameController {
 
     Participant participant;
     PlayNumber playNumber;
+    Winner winner;
 
     public GameController(){
         participant = new Participant();
         playNumber = new PlayNumber();
+        winner = new Winner();
     }
 
     public void init(){
@@ -29,8 +32,9 @@ public class GameController {
             PlayView.racingView(participant);
         }
 
-        participant.winnerCarPlayer();
-        PlayView.resultView(participant);
+        winner.createWinnerData(participant.getParticipants(), participant.winnerCarPlayer());
+
+        PlayView.resultView(winner);
 
     }
 

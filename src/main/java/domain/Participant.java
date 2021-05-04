@@ -29,9 +29,10 @@ public class Participant {
 
     public void inputParticipants(List<String> inputParticipants) {
 
-        for(int i = 0; i < inputParticipants.size(); i++){
-            participants.add(new Car(inputParticipants.get(i)));
+        for(String carName : inputParticipants){
+            participants.add(new Car(carName));
         }
+
     }
 
     public void inputParticipantCarName(){
@@ -40,13 +41,10 @@ public class Participant {
         inputParticipants(StringUtil.participateGame(sc.nextLine()));
     }
 
-    public void winnerCarPlayer(){
+    public int winnerCarPlayer(){
 
         participants.sort(Comparator.comparing(Car::getCarMoveDistance).reversed());
-
-        int winnerDistance = participants.get(0).getCarMoveDistance();
-        participants.removeIf(participant -> participant.getCarMoveDistance() != winnerDistance);
-
+        return participants.get(0).getCarMoveDistance();
 
     }
 
